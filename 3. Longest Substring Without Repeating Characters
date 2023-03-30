@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        string m;
+        int lsize=0;
+        for(int i=0; i<s.size(); i++)
+        {
+            for(int j=0; j<m.size(); j++)
+            {
+                
+                if(s[i]==m[j])
+                {   
+                    if(m.size()>lsize)
+                    {
+                        lsize=m.size();
+                    } 
+                    
+                    m.erase(0,j+1);
+                }
+            }
+            m+=s[i];
+        }
+        if(m.size()>lsize)
+        {
+            lsize=m.size();
+        }
+        return lsize;
+        
+    }
+};
