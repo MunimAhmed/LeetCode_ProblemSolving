@@ -1,0 +1,19 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        dictx = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+        z = 0
+        for i in range(0, len(s)):
+            y = dictx[s[i]]                      # value of current letter
+            if i + 1 < len(s) and y < dictx[s[i + 1]]:
+                z = z - y                        # smaller before bigger → subtract
+            else:
+                z = z + y                        # otherwise → add
+        return z
