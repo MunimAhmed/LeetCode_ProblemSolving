@@ -1,0 +1,11 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False          # negatives can't be palindromes ("-121" vs "121-")
+        original = x
+        reversed_num = 0
+        while x > 0:
+            last_digit = x % 10               # take the last digit
+            reversed_num = reversed_num * 10 + last_digit  # attach it to the new number
+            x = x // 10                       # remove the last digit
+        return original == reversed_num
